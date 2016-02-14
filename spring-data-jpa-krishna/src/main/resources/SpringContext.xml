@@ -26,19 +26,43 @@
 	<bean id="registrationBean" class="net.javabeat.springdata.beans.RegistrationBean" />
 	
 	
-	<!-- Define EclipseLink JPA Vendor Adapter -->
-	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
+	<!-- =======  WAY-1    ========= -->
+	<!-- ===== Define EclipseLink JPA Vendor Adapter ===== -->
+	<!-- <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter">
 		<property name="databasePlatform" value="org.eclipse.persistence.platform.database.MySQLPlatform" />
 		<property name="generateDdl" value="false" />
 		<property name="showSql" value="true" />
 	</bean>
 
-	<!-- Entity Manager Factory -->
+	Entity Manager Factory
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		=========== Read persistent.xml file from here  ===========
 		<property name="persistenceUnitName" value="spring-data-jpa-krishna" />
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
-	</bean>
-
+	</bean> -->
+	
+	
+	<!-- =======  WAY-2    ========= -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+ 
+ 	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="true"/>
+        <property name="generateDdl" value="true"/>
+        <property name="database" value="MYSQL"/>
+    </bean>
+    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
+        <!-- spring based scanning for entity classes-->
+        <property name="packagesToScan" value="net.javabeat.springdata.*" />
+    </bean>
+	
 	<!-- Transaction Manager -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
