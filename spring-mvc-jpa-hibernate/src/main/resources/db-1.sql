@@ -1,0 +1,4 @@
+INSERT INTO EMPLOYEE (EMPLOYEE_ID,FIRST_NAME,MIDDLE_NAME,LAST_NAME,EMPLOYEE_DOB,EMAIL_ID,JOB_FUNCTION,BU_NAME,GRADE,DEPARTMENT_NAME,DESIGNATION,OFFICE_ADDRESS,PROJECT_ID,IS_OFFSHORE,EDUCATION,HIRE_DATE,YEAR_EXPERINCE,IS_ACTIVE,IS_TRAINING_DONE,PLACE_OF_BIRTH) VALUES
+(1,'Andrew','David','Johnston','1967-03-08','andrew.johnston@tcs.com','BUS','IT Services','E65','Life Sciences','Architect','Reston, USA','10004','N','Bachelor Of Engineering','1998-08-02',19,'Y','Y','Reston'),
+(2,'John','Ricy','Cena','1975-11-22','john.cena@google.com','SOftwar Labs','IT Services','J22','Energy and Utility','Software Developer','Wokingham, UK','1000466','N','MBA','2006-12-01',10,'Y','Y','Wokingham'),
+(3,'Sally','Maya','Cox','1981-09-17','sally.cox@yahoo.com','Business Users','IT Services','H16','Logistics','Business User','Warwick, UK','1000134','N','MBA','2001-07-08',10,'Y','Y','Wokingham'),
