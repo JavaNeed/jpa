@@ -1,9 +1,12 @@
 package com.journaldev.spring.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +41,12 @@ public class PersonController {
 	
 	//For add and update person both
 	@RequestMapping(value= "/person/add", method = RequestMethod.POST)
-	public String addPerson(@ModelAttribute("person") Person p){
+	public String addPerson(@Valid @ModelAttribute("person") Person p, BindingResult bindingResult){
+		
+		if(bindingResult.hasErrors()){
+			System.out.println(bindingResult);
+			return "redirect:/persons";
+		}
 		
 		if(p.getId() == 0){
 			//new person, add it
@@ -52,13 +60,11 @@ public class PersonController {
 		
 	}
 	
-	
 	@RequestMapping("/remove/{id}")
     public String removePerson(@PathVariable("id") int id){
         this.personService.removePerson(id);
         return "redirect:/persons";
     }
-
 	
     @RequestMapping("/edit/{id}")
     public String editPerson(@PathVariable("id") int id, Model model){
@@ -66,5 +72,4 @@ public class PersonController {
         model.addAttribute("listPersons", this.personService.listPersons());
         return "person";
     }
-	
 }
