@@ -20,10 +20,10 @@ public class PostRepositoryTest {
 	private static SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy"); 
 
 	@Autowired
-	PostRepository repository;
+	private PostRepository repository;
 	
 	@Test
-	public void test() throws ParseException {
+	public void testH2Database() throws ParseException {
 		Post post = new Post();
 		post.setPostDate(formatter.parse("7-Jan-2016"));
 		post.setTitle("First Post");
