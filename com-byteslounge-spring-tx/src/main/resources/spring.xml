@@ -13,31 +13,37 @@
 
 	<context:component-scan base-package="com.byteslounge.spring.tx.dao.impl" />
 	<context:component-scan base-package="com.byteslounge.spring.tx.user.impl" />
+	
+	<context:property-placeholder location="database.properties" />
 
+	<!-- DataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/test" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="driverClassName" value="${jdbc.mysql.driver.class}" />
+		<property name="url" value="${jdbc.mysql.url}" />
+		<property name="username" value="${jdbc.mysql.username}" />
+		<property name="password" value="${jdbc.mysql.password}" />
 	</bean>
 
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="testPU" />
+	<!-- Entity Manager Factory -->
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="${persistence.Unit.Name}" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
+        
+        <!-- JPA Properties -->
         <property name="jpaProperties">
             <map>
-                <entry key="hibernate.hbm2ddl.auto" value="create"/>
-                <entry key="hibernate.show_sql" value="true"/>
+                <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}"/>
+                <entry key="hibernate.show_sql" value="${hibernate.show_sql}"/>
                 <!-- <entry key="hibernate.format_sql" value="true" />
                 <entry key="hibernate.order_updates" value="true" /> -->
             </map>
         </property>
 	</bean>
 
+	<!-- Transaction Manager -->
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>

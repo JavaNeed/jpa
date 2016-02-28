@@ -9,6 +9,7 @@ import com.byteslounge.spring.tx.model.User;
 import com.byteslounge.spring.tx.user.UserManager;
 
 public class Main {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
