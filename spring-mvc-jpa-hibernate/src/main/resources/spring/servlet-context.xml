@@ -39,9 +39,9 @@
 
     <!-- ====== Hibernate JPA Vendor Adaptor ======= -->
     <beans:bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <beans:property name="showSql" value="true"/>
-        <beans:property name="generateDdl" value="true"/>
-        <beans:property name="database" value="MYSQL"/>
+        <beans:property name="showSql" value="${jpa.vendor.adapter.show_sql}"/>
+        <beans:property name="generateDdl" value="${jpa.vendor.adapter.generateDdl}"/>
+        <beans:property name="database" value="${jpa.vendor.adapter.database}"/>
     </beans:bean>
     
     
@@ -63,8 +63,8 @@
         
         <beans:property name="jpaProperties">
         	<beans:props>
-        		<beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>  <!-- validate | update | create | create-drop -->
-        		<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</beans:prop>
+        		<beans:prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</beans:prop>
+        		<beans:prop key="hibernate.dialect">${hibernate.dialect}</beans:prop>
         		<!-- <beans:prop key="hibernate.cache.use_query_cache">true</beans:prop> --> 
         	</beans:props>
         </beans:property>

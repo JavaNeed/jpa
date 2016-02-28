@@ -10,36 +10,66 @@
 
 
 	<properties>
+		<!-- Java Version -->
 		<java.version>1.7</java.version>
+
+		<!-- Spring Framework Version -->
 		<org.springframework-version>4.1.9.RELEASE</org.springframework-version>
-		<org.aspectj-version>1.7.4</org.aspectj-version>
-		<org.slf4j-version>1.7.5</org.slf4j-version>
+		
+		<!-- Spring Data JPA -->
+		<spring-data-jpa-version>1.9.2.RELEASE</spring-data-jpa-version>
+		
+		<!-- Hibernate Version -->
 		<hibernate.version>5.1.0.Final</hibernate.version>
+		
+		<!-- Validation API -->
 		<validation-api.version>1.1.0.Final</validation-api.version>
 		<hibernate-validator.version>5.1.1.Final</hibernate-validator.version>
+		<!-- Required for Hibernate Validation -->
 		<jsoup-version>1.8.1</jsoup-version>
-		<spring-data-jpa-version>1.9.2.RELEASE</spring-data-jpa-version>
+		
+		
+		<!--  Query DSL -->
+		<querydsl.version>3.7.1</querydsl.version>
+		
+		<org.aspectj-version>1.7.4</org.aspectj-version>
+		<org.slf4j-version>1.7.5</org.slf4j-version>
+		
+		<log4j.version>1.2.17</log4j.version>
+		
+		<!-- MYSQL version -->
+		<mysql.version>5.1.37</mysql.version>
+		
+		<!-- Web Dependencies -->
+		<servlet-api-version>2.5</servlet-api-version>
+		<jstl.version>1.2</jstl.version>
+		<jsp-api-version>2.1</jsp-api-version>
+		
+		<!-- Junit -->
+		<junit.version>4.12</junit.version>
 	</properties>
 
 	<dependencies>
-		<!-- Spring -->
+		<!-- Spring Web MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+
+		<!-- Spring TX -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- Spring Data JPA -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${spring-data-jpa-version}</version>
 		</dependency>
-
 
 		<!-- Hibernate Entity Manager -->
 		<dependency>
@@ -47,7 +77,6 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-
 
 		<!-- Validations -->
 		<dependency>
@@ -80,28 +109,28 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- Querydsl dependencies -->
+		<!-- Querydsl dependencies Core, Apt, JPA -->
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-core</artifactId>
-			<version>3.3.2</version>
+			<version>${querydsl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
-			<version>3.3.2</version>
+			<version>${querydsl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
-			<version>3.3.2</version>
+			<version>${querydsl.version}</version>
 		</dependency>
 
 		<!-- LOG4J -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${log4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -130,14 +159,14 @@
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
+			<version>${jsp-api-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Servlet API -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet-api-version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -145,21 +174,22 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
 
 		<!-- Junit Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
+		<!-- MYSQL version -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.37</version>
+			<version>${mysql.version}</version>
 		</dependency>
 	</dependencies>
 
