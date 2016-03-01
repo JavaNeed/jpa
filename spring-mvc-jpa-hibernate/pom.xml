@@ -12,24 +12,36 @@
 	<properties>
 		<!-- Generic Properties -->
 		<java.version>1.7</java.version>
-		
+
 		<!-- Spring Framework -->
 		<org.springframework-version>4.1.9.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.7.4</org.aspectj-version>
 		<org.slf4j-version>1.7.5</org.slf4j-version>
-		
+
 		<!-- Hibernate -->
 		<hibernate.version>5.1.0.Final</hibernate.version>
-		
+
 		<!-- Validation API -->
 		<validation-api.version>1.1.0.Final</validation-api.version>
 		<hibernate-validator.version>5.1.1.Final</hibernate-validator.version>
-		
+
 		<!-- Required for Hibernate validator -->
 		<jsoup-version>1.8.1</jsoup-version>
-		
+
+		<query.dsl.version>3.7.1</query.dsl.version>
+
 		<!-- Spring Data JPA -->
 		<spring-data-jpa-version>1.9.2.RELEASE</spring-data-jpa-version>
+
+		<jsr305.version>3.0.0</jsr305.version>
+
+		<mysql.version>5.1.37</mysql.version>
+		<commons-dbcp-version>1.4</commons-dbcp-version>
+
+		<junit.version>4.12</junit.version>
+
+		<jstl.version>1.2</jstl.version>
+		<servlet-api-version>2.5</servlet-api-version>
 	</properties>
 
 	<dependencies>
@@ -39,7 +51,7 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- Spring TX -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -77,8 +89,9 @@
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
+			<version>${commons-dbcp-version}</version>
 		</dependency>
+
 		<!-- Spring ORM -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -97,32 +110,24 @@
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-core</artifactId>
-			<version>3.3.2</version>
+			<version>${query.dsl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
-			<version>3.3.2</version>
+			<version>${query.dsl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysema.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
-			<version>3.3.2</version>
+			<version>${query.dsl.version}</version>
 		</dependency>
 
-		<!-- LOG4J -->
-		<!--dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-			<scope>runtime</scope>
-		</dependency-->
-
-		<dependency> 
-		  <groupId>org.slf4j</groupId>
-		  <artifactId>slf4j-log4j12</artifactId>
-		  <version>1.7.18</version>
-		</dependency>		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.18</version>
+		</dependency>
 
 		<!-- Needed for Hibernate Validation -->
 		<dependency>
@@ -134,7 +139,7 @@
 		<dependency>
 			<groupId>com.google.code.findbugs</groupId>
 			<artifactId>jsr305</artifactId>
-			<version>3.0.0</version>
+			<version>${jsr305.version}</version>
 		</dependency>
 
 		<!-- @Inject -->
@@ -155,7 +160,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<version>${servlet-api-version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -163,21 +168,21 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
 
 		<!-- Junit Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.37</version>
+			<version>${mysql.version}</version>
 		</dependency>
 	</dependencies>
 
