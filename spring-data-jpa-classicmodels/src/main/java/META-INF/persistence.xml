@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="SpringData" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- <class>net.javabeat.springdata.jpa.data.Customer</class>
+		<class>net.javabeat.springdata.jpa.data.Employee</class>
+		<class>net.javabeat.springdata.jpa.data.Office</class>
+		<class>net.javabeat.springdata.jpa.data.Order</class>
+		<class>net.javabeat.springdata.jpa.data.Orderdetail</class>
+		<class>net.javabeat.springdata.jpa.data.OrderdetailPK</class>
+		<class>net.javabeat.springdata.jpa.data.Payment</class>
+		<class>net.javabeat.springdata.jpa.data.PaymentPK</class>
+		<class>net.javabeat.springdata.jpa.data.Product</class>
+		<class>net.javabeat.springdata.jpa.data.Productline</class>
+		<class>net.javabeat.springdata.jpa.data.Stock</class> -->
+
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/classicmodels" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+
+			<property name="eclipselink.logging.level" value="ON" />
+			<!-- <property name="hibernate.show_sql" value="true" /> -->
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" /> <!-- create-tables -->
+		</properties>
+	</persistence-unit>
+</persistence>
