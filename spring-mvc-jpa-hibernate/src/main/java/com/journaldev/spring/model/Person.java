@@ -46,23 +46,23 @@ public class Person {
 	private String emailId;*/
 
 	@SafeHtml(whitelistType=WhiteListType.NONE, message="{html.validation.firstname}")
-	@Length(max=Constant.MAX_FIRSTNAME,min=Constant.MIN_FIRSTNAME,message="{length.validation.firstname}")
+	@Length(max=Constant.MAX_FIRSTNAME,min=Constant.MIN_FIRSTNAME,message="{Length.person.firstname}")
 	@Column(name="FIRST_NAME")
 	private String firstname;
 	
 	@SafeHtml(whitelistType=WhiteListType.NONE, message="{html.validation.lastname}")
-	@Length(max=Constant.MAX_LASTNAME,min=Constant.MIN_LASTTNAME,message="{length.validation.lastname}")
+	@Length(max=Constant.MAX_LASTNAME,min=Constant.MIN_LASTTNAME,message="{Length.person.lastname}")
 	@Column(name="LAST_NAME")
 	private String lastname;
 	
 	@SafeHtml(whitelistType=WhiteListType.NONE, message="{html.validation.country}")
-	@Length(max=Constant.MAX_COUNTRY,min=Constant.MIN_COUNTRY,message="{length.validation.country}")
+	@Length(max=Constant.MAX_COUNTRY,min=Constant.MIN_COUNTRY,message="{Length.person.country}")
 	@Column(name="COUNTRY")
 	private String country;
 	
 	@SafeHtml(whitelistType = SafeHtml.WhiteListType.NONE, message = "{html.validation.emailId}")
-    @Length(max=Constant.MAX_EMAILID,min=Constant.MIN_EMAILID, message = "{length.validation.emailId}")
-	@Pattern(regexp = "^(.+)@(.+)$")
+    @Length(max=Constant.MAX_EMAILID,min=Constant.MIN_EMAILID, message = "{Length.person.emailId}")
+	@Pattern(regexp = "^(.+)@(.+)$", message = "{Pattern.person.emailId}")
 	@Column(name="EMAIL_ID")
 	private String emailId;
 	

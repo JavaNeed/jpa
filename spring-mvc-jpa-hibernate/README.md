@@ -1,13 +1,7 @@
 SpringMVCHibernate = Spring Hibernate Integration
 --------------------
 
-App URL:
-------- 
-http://localhost:8080/spring-mvc-jpa-hibernate/persons
-
-Query DSL Implementation:
-------------------------
-This code has implementation of query dsl
+App URL: http://localhost:8080/spring-mvc-jpa-hibernate/persons
 
 
 Log4j Properties:
