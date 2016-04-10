@@ -3,6 +3,7 @@ package net.javabeat.springdata;
 import java.util.List;
 
 import net.javabeat.springdata.jpa.data.Customer;
+import net.javabeat.springdata.jpa.data.Employee;
 import net.javabeat.springdata.jpa.data.Order;
 import net.javabeat.springdata.repository.CustomerRepository;
 
@@ -19,6 +20,37 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomerTest {
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	
+	@Test
+	public void createCustomer(){
+		
+		Customer customer = new Customer();
+		customer.setCustomerNumber(498);
+		customer.setCustomerName("John Kerr");
+		customer.setContactLastName("Kerr");
+		customer.setContactFirstName("John");
+		customer.setPhone("11.22.3333");
+		customer.setAddressLine1("500 Street");
+		customer.setAddressLine2("Green Tree Hills");
+		customer.setCity("London"); 
+		customer.setState("United Kingdom");
+		customer.setPostalCode("233214");
+		customer.setCountry("England");
+		customer.setCreditLimit(321312);
+		
+		Employee e = new Employee();
+		e.setEmail("john.kerr@gmail.com");
+		e.setEmployeeNumber(1702);
+		e.setExtension("x2344");
+		e.setFirstName("John");
+		e.setLastName("Kerr");
+		e.setJobTitle("Software Developer");
+		
+		customer.setEmployee(e);
+		
+		customerRepository.save(customer);
+	}
 
 	@Test
 	public void testCountry() {
@@ -31,7 +63,9 @@ public class CustomerTest {
 		List<Customer> customers = customerRepository.findByCountry();
 		System.out.println(customers.size());
 		for (Customer customer : customers) {
+			System.out.println("-----------------------------");
 			System.out.println(customer.getEmployee().getEmail());
+			System.out.println(customer.getCountry());
 		}
 	}
 	
