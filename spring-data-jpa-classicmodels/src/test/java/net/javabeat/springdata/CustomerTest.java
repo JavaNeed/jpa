@@ -1,5 +1,6 @@
 package net.javabeat.springdata;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import net.javabeat.springdata.jpa.data.Customer;
@@ -12,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:SpringContext.xml")
@@ -21,6 +21,17 @@ public class CustomerTest {
 	@Autowired
 	private CustomerRepository customerRepository;
 	
+	@Test
+	public void testUpdateCustomer(){
+		customerRepository.updateCustomer("MH", 103);
+		System.out.println("Record Update Successfully");
+	}
+	
+	@Test
+	public void testUpdateCreditLimitOfCustomer(){
+		customerRepository.updateCustomerForCreditLimit("Achalpur", 103);
+		System.out.println("Record Update Successfully");
+	}
 	
 	@Test
 	public void createCustomer(){
@@ -37,7 +48,7 @@ public class CustomerTest {
 		customer.setState("United Kingdom");
 		customer.setPostalCode("233214");
 		customer.setCountry("England");
-		customer.setCreditLimit(321312);
+		customer.setCreditLimit(new BigDecimal("321312"));
 		
 		Employee e = new Employee();
 		e.setEmail("john.kerr@gmail.com");

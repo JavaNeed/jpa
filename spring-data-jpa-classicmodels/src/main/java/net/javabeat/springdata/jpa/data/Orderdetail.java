@@ -1,7 +1,10 @@
 package net.javabeat.springdata.jpa.data;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.DynamicUpdate;
 
 
 /**
@@ -11,6 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="orderdetails")
 @NamedQuery(name="Orderdetail.findAll", query="SELECT o FROM Orderdetail o")
+@DynamicUpdate(true)
 public class Orderdetail implements Serializable {
 	private static final long serialVersionUID = 1L;
 

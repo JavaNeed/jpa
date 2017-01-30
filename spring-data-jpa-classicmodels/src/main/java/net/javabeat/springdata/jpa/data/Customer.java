@@ -1,7 +1,12 @@
 package net.javabeat.springdata.jpa.data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.DynamicUpdate;
+
 import java.util.List;
 
 
@@ -12,6 +17,7 @@ import java.util.List;
 @Entity
 @Table(name="customers")
 @NamedQuery(name="Customer.findAll", query="SELECT c FROM Customer c")
+@DynamicUpdate(true)
 public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -31,7 +37,7 @@ public class Customer implements Serializable {
 
 	private String country;
 
-	private double creditLimit;
+	private BigDecimal creditLimit;
 
 	private String customerName;
 
@@ -113,11 +119,11 @@ public class Customer implements Serializable {
 		this.country = country;
 	}
 
-	public double getCreditLimit() {
+	public BigDecimal getCreditLimit() {
 		return this.creditLimit;
 	}
 
-	public void setCreditLimit(double creditLimit) {
+	public void setCreditLimit(BigDecimal creditLimit) {
 		this.creditLimit = creditLimit;
 	}
 
