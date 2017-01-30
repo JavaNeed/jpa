@@ -16,5 +16,4 @@
     <context:component-scan base-package="org.baeldung" />
 
     <import resource="test-db.xml" />
-
 </beans>

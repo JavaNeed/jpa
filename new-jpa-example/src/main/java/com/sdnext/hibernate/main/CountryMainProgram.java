@@ -7,7 +7,6 @@ import javax.persistence.Persistence;
 import com.sdnext.hibernate.model.Country;
 import com.sdnext.hibernate.model.Department;
 import com.sdnext.hibernate.model.Employee;
-import com.sdnext.hibernate.model.JobHistory;
 
 public class CountryMainProgram {
 	public static void main(String[] args) {

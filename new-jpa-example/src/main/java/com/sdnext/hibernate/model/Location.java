@@ -3,34 +3,33 @@ package com.sdnext.hibernate.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the locations database table.
  * 
  */
 @Entity
-@Table(name="locations")
-@NamedQuery(name="Location.findAll", query="SELECT l FROM Location l")
+@Table(name = "locations")
+@NamedQuery(name = "Location.findAll", query = "SELECT l FROM Location l")
 public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="LOCATION_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "LOCATION_ID")
 	private long locationId;
 
 	private String city;
 
-	@Column(name="COUNTRY_ID")
+	@Column(name = "COUNTRY_ID")
 	private String countryId;
 
-	@Column(name="POSTAL_CODE")
+	@Column(name = "POSTAL_CODE")
 	private String postalCode;
 
-	@Column(name="STATE_PROVINCE")
+	@Column(name = "STATE_PROVINCE")
 	private String stateProvince;
 
-	@Column(name="STREET_ADDRESS")
+	@Column(name = "STREET_ADDRESS")
 	private String streetAddress;
 
 	public Location() {

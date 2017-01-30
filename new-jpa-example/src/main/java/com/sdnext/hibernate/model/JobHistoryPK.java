@@ -9,27 +9,31 @@ import javax.persistence.*;
  */
 @Embeddable
 public class JobHistoryPK implements Serializable {
-	//default serial version id, required for serializable classes.
+	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="EMPLOYEE_ID")
+	@Column(name = "EMPLOYEE_ID")
 	private long employeeId;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name="START_DATE")
+	@Column(name = "START_DATE")
 	private java.util.Date startDate;
 
 	public JobHistoryPK() {
 	}
+
 	public long getEmployeeId() {
 		return this.employeeId;
 	}
+
 	public void setEmployeeId(long employeeId) {
 		this.employeeId = employeeId;
 	}
+
 	public java.util.Date getStartDate() {
 		return this.startDate;
 	}
+
 	public void setStartDate(java.util.Date startDate) {
 		this.startDate = startDate;
 	}
@@ -41,10 +45,8 @@ public class JobHistoryPK implements Serializable {
 		if (!(other instanceof JobHistoryPK)) {
 			return false;
 		}
-		JobHistoryPK castOther = (JobHistoryPK)other;
-		return 
-			(this.employeeId == castOther.employeeId)
-			&& this.startDate.equals(castOther.startDate);
+		JobHistoryPK castOther = (JobHistoryPK) other;
+		return (this.employeeId == castOther.employeeId) && this.startDate.equals(castOther.startDate);
 	}
 
 	public int hashCode() {
@@ -52,7 +54,7 @@ public class JobHistoryPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + ((int) (this.employeeId ^ (this.employeeId >>> 32)));
 		hash = hash * prime + this.startDate.hashCode();
-		
+
 		return hash;
 	}
 }
